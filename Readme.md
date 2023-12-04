@@ -6,13 +6,15 @@
 * Join Point: Un Join Point es un punto específico en la aplicación, como la ejecución de métodos,
   manejo de excepciones, cambio de valores de variables de objetos, etc. En Spring AOP, un Join Point
   es siempre la ejecución de un método.
-* Advice: Advices son acciones tomadas para un JoinPoint en específico. En términos de programación,
-  son métodos que se ejecutan cuando se alcanza un determinado JoinPoint con un Pointcut coincidente
-  en la aplicación.
 * Pointcut: Son expresiones que coinciden con JoinPoint para determinar si es necesario ejecutar
   el advice o no. Pointcut usa diferentes tipos de expresiones que coinciden con los JoinPoint y
   Spring Framework usa el lenguaje donde se anula el método de destino y se incluyen advices según
   su configuración.
+  Pointcut tiene diferentes formas de ser definido: `within`, `annotation`, `execution`, `args`, 
+  `target`, `this`.
+* Advice: Advices son acciones tomadas para un JoinPoint en específico. En términos de programación,
+  son métodos que se ejecutan cuando se alcanza un determinado JoinPoint con un Pointcut coincidente
+  en la aplicación.
 * Target Object: Son el objeto sobre el que se aplican los advices. Spring AOP se implementa mediante
   servidores proxy en tiempo de ejecución, por lo que este objeto es siempre un objeto proxy.
   Lo que esto significa es que se crea una subclase en tiempo de ejecución donde se anula el método
