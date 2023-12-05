@@ -1,4 +1,4 @@
-package com.example.springaop.pildoras.aspect;
+package com.example.springaop.pildoras.lesson_1.aspect;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -11,19 +11,19 @@ public class LoginWithAspect {
 
   /*
     Pointcut at package level
-    @Pointcut("execution(public * com.example.springaop.pildoras.dao.*.*(..))")
-    @Pointcut("execution(* com.example.springaop.pildoras.dao.*.*(..))")
-    @Pointcut("execution(* com.example.springaop.pildoras.dao.ClientDAO.*(..))")
-    @Pointcut("execution(* com.example.springaop.pildoras.dao.*.getNormalClientRating(..))")
-    @Pointcut("execution(* com.example.springaop.pildoras.dao.*.*(..))")
-    @Pointcut("execution(void com.example.springaop.pildoras.dao.*.*(..))")
-    @Pointcut("execution(* com.example.springaop.pildoras.dao.*.get*(..))")
+    @Pointcut("execution(public * com.example.springaop.pildoras.lesson_1.dao.*.*(..))")
+    @Pointcut("execution(* com.example.springaop.pildoras.lesson_1.dao.*.*(..))")
+    @Pointcut("execution(* com.example.springaop.pildoras.lesson_1.dao.ClientDAO.*(..))")
+    @Pointcut("execution(* com.example.springaop.pildoras.lesson_1.dao.*.getNormalClientRating(..))")
+    @Pointcut("execution(* com.example.springaop.pildoras.lesson_1.dao.*.*(..))")
+    @Pointcut("execution(void com.example.springaop.pildoras.lesson_1.dao.*.*(..))")
+    @Pointcut("execution(* com.example.springaop.pildoras.lesson_1.dao.*.get*(..))")
    */
-  @Pointcut("execution(* com.example.springaop.pildoras.dao.*.*(..))")
+  @Pointcut("execution(* com.example.springaop.pildoras.lesson_1.dao.*.*(..))")
   private void toClients() {}
-  @Pointcut("execution(* com.example.springaop.pildoras.dao.*.get*(..))")
+  @Pointcut("execution(* com.example.springaop.pildoras.lesson_1.dao.*.get*(..))")
   private void toGetters() {}
-  @Pointcut("execution(* com.example.springaop.pildoras.dao.*.set*(..))")
+  @Pointcut("execution(* com.example.springaop.pildoras.lesson_1.dao.*.set*(..))")
   private void toSetters() {}
   // Combine Pointcuts
   @Pointcut("toClients() && !(toGetters() || toSetters())")
@@ -35,12 +35,10 @@ public class LoginWithAspect {
   /*
     Pointcut at method level
     @Before("execution(public void saveClient())")
-    @Before("execution(public void com.example.springaop.pildoras.dao.ClientVipDAO.saveClient())")
     @Before("execution(public * saveClient*())")
     @Before("execution(public void saveClient*(..))")
     @Before("execution(public void saveClient*(*, *))")
-    @Before("execution(public void saveClient*(com.example.springaop.pildoras.domain.Client, ..))")
-    @Before("execution(public com.example.springaop.pildoras.domain.Client saveClient*(..))")
+    @Before("execution(public void saveClient*(com.example.springaop.pildoras.lession_1.domain.Client, ..))")
     @Before("execution(public void saveClient*(..))")
   */
 //  @Before("toClients()")

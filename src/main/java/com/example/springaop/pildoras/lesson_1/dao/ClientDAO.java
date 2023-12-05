@@ -1,6 +1,6 @@
-package com.example.springaop.pildoras.dao;
+package com.example.springaop.pildoras.lesson_1.dao;
 
-import com.example.springaop.pildoras.domain.Client;
+import com.example.springaop.pildoras.lesson_1.domain.Client;
 import org.springframework.stereotype.Component;
 
 @Component

@@ -1,4 +1,4 @@
-package com.example.springaop.pildoras.domain;
+package com.example.springaop.pildoras.lesson_1.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

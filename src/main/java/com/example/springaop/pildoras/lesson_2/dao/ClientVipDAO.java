@@ -1,4 +1,4 @@
-package com.example.springaop.pildoras.dao;
+package com.example.springaop.pildoras.lesson_2.dao;
 
 import org.springframework.stereotype.Component;
 
