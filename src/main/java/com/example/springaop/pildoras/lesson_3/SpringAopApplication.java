@@ -25,11 +25,11 @@ public class SpringAopApplication implements CommandLineRunner {
     boolean myParam = false;
     try {
       List<Client> clientList = this.clientDAO.findAll(myParam);
+      System.out.println("----lógica después de aspecto----");
       clientList.forEach(System.out::println);
     } catch (Exception ex) {
-      System.out.println("Excepción lanzada desde la clase principal");
+      System.out.println(STR."Excepción lanzada desde la clase principal : \{ex.getMessage()}");
     }
-    System.out.println("Aquí continuaría la ejecución del programa");
+    System.out.println("---find de la aplicación---");
   }
-
 }
