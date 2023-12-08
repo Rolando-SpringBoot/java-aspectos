@@ -22,7 +22,7 @@ public class SpringAopApplication implements CommandLineRunner {
 
   @Override
   public void run(String... args) throws Exception {
-    boolean myParam = true;
+    boolean myParam = false;
     try {
       List<Client> clientList = this.clientDAO.findAll(myParam);
       clientList.forEach(System.out::println);

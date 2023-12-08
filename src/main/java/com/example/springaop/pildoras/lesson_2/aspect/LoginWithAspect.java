@@ -22,8 +22,13 @@ public class LoginWithAspect {
   @Pointcut("execution(* com.example.springaop.pildoras.lesson_2.dao.*.*(..))")
   public void toClients() {}
 
+  /*
+    Before to call method.
+    If you want, you can access to arguments method through JoinPoint
+   */
   @Before("toClients()")
   public void beforeToSaveClient(JoinPoint joinPoint) {
+    // argument method
     System.out.println("El usuario está registrado");
     System.out.println("El perfil para insertar clientes es correcto");
     Object[] arguments = joinPoint.getArgs();

@@ -3,6 +3,8 @@ package com.example.springaop.pildoras.lesson_3.aspect;
 import com.example.springaop.pildoras.lesson_3.domain.Client;
 import java.util.ArrayList;
 import java.util.List;
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
@@ -32,12 +34,16 @@ public class LoginWithAspect {
     System.out.println("El perfil para insertar clientes es correcto");
   }
 
-  /*
-    Capture returned value and then you can modify this content
+   /*
+    Capture returned value and then you can modify this content.
+    If you want, you can access to arguments method through JoinPoint
    */
   @SuppressWarnings({"unchecked", "rawtypes"})
   @AfterReturning(value = "toClientFindAll()", returning = "result")
-  public void taskAfterFindAllClients(Object result) {
+  public void taskAfterFindAllClients(JoinPoint joinPoint, Object result) {
+    // argument method
+    Object firstArg = joinPoint.getArgs()[0];
+    System.out.println(STR."First arg \{firstArg.getClass().getSimpleName()} : \{firstArg}");
     List<Client> clientList = new ArrayList<>();
     if(result instanceof List list) {
       clientList = (List<Client>) list.stream()
@@ -56,13 +62,37 @@ public class LoginWithAspect {
 
   /*
     Capture returned exception after throwing this.
+    If you want, you can access to arguments method through JoinPoint
    */
   @AfterThrowing(value = "toClientFindAll()", throwing = "throwable")
-  public void taskAfterThrowingFindAllClients(Throwable throwable) {
+  public void taskAfterThrowingFindAllClients(JoinPoint joinPoint, Throwable throwable) {
+    // argument method
+    Object firstArg = joinPoint.getArgs()[0];
+    System.out.println(STR."First arg \{firstArg.getClass().getSimpleName()} : \{firstArg}");
+
     if(throwable instanceof NullPointerException exception) {
       System.out.println("I am a null pointer exception");
     }
     System.out.println(STR."The message error is: \{throwable.getMessage()}");
+    System.out.println("Aquí se estarían ejecutando de forma automática las tareas tras excepción");
+  }
+
+   /*
+    It's called whether happens an error or not. Also, You can see it as finally block in java.
+    If you have @After, @AfterReturning and @AfterThrowing in the same aspect. The order of execution
+    would be:
+    - @AfterReturning / @AfterThrowing
+    - @After
+
+    If you want, you can access to arguments method through JoinPoint
+   */
+  @After(value = "toClientFindAll()")
+  public void taskWithAndWithoutExceptionFindAllClients(JoinPoint joinPoint) {
+    // argument method
+    Object firstArg = joinPoint.getArgs()[0];
+    System.out.println(STR."First arg \{firstArg.getClass().getSimpleName()} : \{firstArg}");
+
+    System.out.println("Ejecutando tareas SIEMPRE!!!");
   }
 
 }
