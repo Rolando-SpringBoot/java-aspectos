@@ -25,6 +25,12 @@ public class LoginWithAspect {
   @Pointcut("execution(java.util.List com.example.springaop.pildoras.lesson_3.dao.ClientDAO.findAll())")
   private void toClientFindAll() {}
 
+  @Before("toClients()")
+  public void beforeToSaveClient() {
+    System.out.println("El usuario está registrado");
+    System.out.println("El perfil para insertar clientes es correcto");
+  }
+
   /*
     Handle the value returned and then modify his content
    */
@@ -44,12 +50,6 @@ public class LoginWithAspect {
         System.out.println(STR."Existen clientes VIP en el listado. Nombre: \{client.getName()}");
       }
     }
-  }
-
-  @Before("toClients()")
-  public void beforeToSaveClient() {
-    System.out.println("El usuario está registrado");
-    System.out.println("El perfil para insertar clientes es correcto");
   }
 
 }
