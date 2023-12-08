@@ -22,8 +22,13 @@ public class SpringAopApplication implements CommandLineRunner {
 
   @Override
   public void run(String... args) throws Exception {
-    List<Client> clientList =  this.clientDAO.findAll();
-    clientList.forEach(System.out::println);
+    boolean myParam = true;
+    try {
+      List<Client> clientList = this.clientDAO.findAll(myParam);
+      clientList.forEach(System.out::println);
+    } catch (Exception ex) {
+      System.out.println("Excepción lanzada desde la clase principal");
+    }
     System.out.println("Aquí continuaría la ejecución del programa");
   }
 

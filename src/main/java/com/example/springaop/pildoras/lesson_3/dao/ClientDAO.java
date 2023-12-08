@@ -7,7 +7,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class ClientDAO {
 
-  public List<Client> findAll() {
+  public List<Client> findAll(boolean myParam) {
+    if(myParam) throw new NullPointerException("It was not possible to get database connection!");
     // simulate clients returned by BBDD
     List<Client> clientList = List.of(
         Client.of("María", "normal"),
