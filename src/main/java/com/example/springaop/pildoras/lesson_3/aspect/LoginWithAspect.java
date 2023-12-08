@@ -22,9 +22,12 @@ public class LoginWithAspect {
   @Pointcut("execution(* com.example.springaop.pildoras.lesson_3.dao.*.*(..))")
   public void toClients() {}
 
-  @Pointcut("execution(* com.example.springaop.pildoras.lesson_3.dao.ClientDAO.findAll())")
+  @Pointcut("execution(java.util.List com.example.springaop.pildoras.lesson_3.dao.ClientDAO.findAll())")
   private void toClientFindAll() {}
 
+  /*
+    Handle the value returned and then modify his content
+   */
   @SuppressWarnings({"unchecked", "rawtypes"})
   @AfterReturning(value = "toClientFindAll()", returning = "result")
   public void taskAfterFindClients(Object result) {
@@ -36,6 +39,8 @@ public class LoginWithAspect {
     }
     for(Client client : clientList) {
       if (client.getType().equalsIgnoreCase("vip")) {
+        String dataProcessed = "V:I:P" + client.getName().toUpperCase();
+        client.setName(dataProcessed);
         System.out.println(STR."Existen clientes VIP en el listado. Nombre: \{client.getName()}");
       }
     }

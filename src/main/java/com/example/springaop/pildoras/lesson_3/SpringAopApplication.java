@@ -1,6 +1,8 @@
 package com.example.springaop.pildoras.lesson_3;
 
 import com.example.springaop.pildoras.lesson_3.dao.ClientDAO;
+import com.example.springaop.pildoras.lesson_3.domain.Client;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -20,7 +22,8 @@ public class SpringAopApplication implements CommandLineRunner {
 
   @Override
   public void run(String... args) throws Exception {
-    this.clientDAO.findAll();
+    List<Client> clientList =  this.clientDAO.findAll();
+    clientList.forEach(System.out::println);
     System.out.println("Aquí continuaría la ejecución del programa");
   }
 
