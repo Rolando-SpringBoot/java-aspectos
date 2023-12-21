@@ -1,13 +1,13 @@
-package com.example.springaop.indujava.lesson_1;
+package com.example.springaop.pildorasindu.lesson_1;
 
-import com.example.springaop.indujava.lesson_1.service.ShapeService;
+import com.example.springaop.pildorasindu.lesson_1.service.ShapeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
-@ComponentScan({"com.example.springaop.indujava.lesson_1"})
+@ComponentScan({"com.example.springaop.pildorasindu.lesson_1"})
 @SpringBootApplication
 public class SpringAopApplication implements CommandLineRunner {
 

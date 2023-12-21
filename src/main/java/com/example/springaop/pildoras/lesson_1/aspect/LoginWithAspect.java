@@ -34,6 +34,7 @@ public class LoginWithAspect {
 
   /*
     Pointcut at method level
+    @Before("execution(protected void saveClient())")
     @Before("execution(public void saveClient())")
     @Before("execution(public * saveClient*())")
     @Before("execution(public void saveClient*(..))")

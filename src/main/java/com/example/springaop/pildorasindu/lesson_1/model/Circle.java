@@ -1,4 +1,4 @@
-package com.example.springaop.indujava.lesson_1.model;
+package com.example.springaop.pildorasindu.lesson_1.model;
 
 import lombok.Getter;
 import lombok.Setter;
