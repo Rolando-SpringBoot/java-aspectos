@@ -25,6 +25,19 @@ import org.springframework.stereotype.Component;
 @Component
 public class LoginWithAspect {
 
+  /*
+    JoinPoint - méthods more used
+    getArgs() -  Returns the arguments at this join point.
+    getSignature() -  Returns the signature at the join point.
+      . getDeclaringType() -  Returns a java.lang.Class object representing the class, interface, or aspect that declared this member.
+      . getDeclaringTypeName() - Returns the fully-qualified name of the declaring type.
+      . getModifiers() - Returns the modifiers on this signature represented as an int.
+      . getName() - Returns the identifier part of this signature.
+      . toLongString() - Returns an extended string representation of this signature.
+      . toShortString() - Returns an abbreviated string representation of this signature.
+    getTarget() - Returns the target object.
+    getKind() - Returns a String representing the kind of join point.
+   */
 
   @Pointcut("execution(* com.example.springaop.pildoras.lesson_3.dao.*.*(..))")
   public void toClients() {}

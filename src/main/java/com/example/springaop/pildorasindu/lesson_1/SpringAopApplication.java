@@ -1,5 +1,6 @@
 package com.example.springaop.pildorasindu.lesson_1;
 
+import com.example.springaop.pildorasindu.lesson_1.model.Circle;
 import com.example.springaop.pildorasindu.lesson_1.service.ShapeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -20,8 +21,10 @@ public class SpringAopApplication implements CommandLineRunner {
 
   @Override
   public void run(String... args) throws Exception {
-    String name = this.shapeService.getTriangle().getName();
-    System.out.println("name = " + name);
+    Circle circle = this.shapeService.getCircle();
+    circle.setName("Dummy name");
+//    String name = circle.getName();
+//    System.out.println("name = " + name);
   }
 
 }
